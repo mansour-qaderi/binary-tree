@@ -1,0 +1,36 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "outFiles": [
+    "${workspaceFolder}/api/build/dev/**/*.js",
+    "!**/node_modules/**",
+    "node_modules/**",
+    "dist/**"
+  ],
+  "configurations": [
+    {
+      "name": "Attach to Sam Cli",
+      "port": 9229,
+      "request": "attach",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node",
+      "localRoot": "${workspaceRoot}/api/build/dev",
+      "remoteRoot": "/var/task:ro",
+      "continueOnAttach": true,
+      "outFiles": ["${workspaceFolder}/api/build/dev/**/*.js", "!**/node_modules/**"]
+    },
+    {
+      "type": "node",
+      "name": "vscode-jest-tests",
+      "request": "launch",
+      "args": ["--runInBand"],
+      "cwd": "${workspaceFolder}/api",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "program": "${workspaceFolder}/api/node_modules/jest/bin/jest"
+    }
+  ]
+}
