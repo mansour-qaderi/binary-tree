@@ -1,1 +1,1 @@
-# binary-three
+# binary-tree
