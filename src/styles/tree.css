@@ -1,0 +1,9 @@
+/* .tree-body {
+  display: flex;
+  width: 100%;
+} */
+
+.binary {
+  display: flex;
+  gap: 12px;
+}
