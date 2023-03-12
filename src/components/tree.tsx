@@ -27,76 +27,125 @@ export const BinaryTree = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     const newArr: string[] = inputValue?.split(" ");
+    const newArrLength = newArr?.length;
 
-    if (newArr?.length === 1) {
-      setTree([{ key: `arr-${1}`, items: newArr }]);
-    } else if (newArr?.length > 1 && newArr?.length <= 3) {
-      setTree([
-        { key: `arr-${1}`, items: newArr?.slice(0, 1) },
-        {
-          key: `arr-${2}`,
-          items: newArr?.slice(1, 3),
-        },
-      ]);
-    } else if (newArr?.length > 3 && newArr?.length <= 7) {
-      setTree([
-        { key: `arr-${1}`, items: newArr?.slice(0, 1) },
-        {
-          key: `arr-${2}`,
-          items: newArr?.slice(1, 3),
-        },
-        {
-          key: `arr-${4}`,
-          items: newArr?.slice(3, 7),
-        },
-      ]);
-    } else if (newArr?.length > 7 && newArr?.length <= 16) {
-      setTree([
-        { key: `arr-${1}`, items: newArr?.slice(0, 1) },
-        {
-          key: `arr-${2}`,
-          items: newArr?.slice(1, 3),
-        },
-        {
-          key: `arr-${4}`,
-          items: newArr?.slice(3, 7),
-        },
-        {
-          key: `arr-${8}`,
-          items: newArr?.slice(7, 16),
-        },
-      ]);
-    } else if (newArr?.length > 16 && newArr?.length <= 32) {
-      setTree([
-        { key: `arr-${1}`, items: newArr?.slice(0, 1) },
-        {
-          key: `arr-${2}`,
-          items: newArr?.slice(1, 3),
-        },
-        {
-          key: `arr-${4}`,
-          items: newArr?.slice(3, 7),
-        },
-        {
-          key: `arr-${8}`,
-          items: newArr?.slice(7, 16),
-        },
-        {
-          key: `arr-${16}`,
-          items: newArr?.slice(16, 32),
-        },
-      ]);
-    } else {
-      setTree((prev) => {
-        return [
-          ...prev,
-          {
-            key: `arr-${32}`,
-            items: newArr?.slice(32, 64),
-          },
-        ];
-      });
-    }
+    setTree([
+      ...(newArrLength === 1 ? [{ key: `arr-${1}`, items: newArr }] : []),
+      ...(newArr?.length > 1 && newArr?.length <= 3
+        ? [
+            { key: `arr-${1}`, items: newArr?.slice(0, 1) },
+            {
+              key: `arr-${2}`,
+              items: newArr?.slice(1, 3),
+            },
+          ]
+        : []),
+      ...(newArr?.length > 3 && newArr?.length <= 7
+        ? [
+            { key: `arr-${1}`, items: newArr?.slice(0, 1) },
+            {
+              key: `arr-${2}`,
+              items: newArr?.slice(1, 3),
+            },
+            {
+              key: `arr-${4}`,
+              items: newArr?.slice(3, 7),
+            },
+          ]
+        : []),
+      ...(newArr?.length > 7 && newArr?.length <= 16
+        ? [
+            { key: `arr-${1}`, items: newArr?.slice(0, 1) },
+            {
+              key: `arr-${2}`,
+              items: newArr?.slice(1, 3),
+            },
+            {
+              key: `arr-${4}`,
+              items: newArr?.slice(3, 7),
+            },
+            {
+              key: `arr-${8}`,
+              items: newArr?.slice(7, 16),
+            },
+          ]
+        : []),
+      ...(newArr?.length > 16 && newArr?.length <= 32
+        ? [
+            { key: `arr-${1}`, items: newArr?.slice(0, 1) },
+            {
+              key: `arr-${2}`,
+              items: newArr?.slice(1, 3),
+            },
+            {
+              key: `arr-${4}`,
+              items: newArr?.slice(3, 7),
+            },
+            {
+              key: `arr-${8}`,
+              items: newArr?.slice(7, 16),
+            },
+            {
+              key: `arr-${16}`,
+              items: newArr?.slice(16, 32),
+            },
+          ]
+        : []),
+      ...(newArr?.length > 32 && newArr?.length <= 64
+        ? [
+            { key: `arr-${1}`, items: newArr?.slice(0, 1) },
+            {
+              key: `arr-${2}`,
+              items: newArr?.slice(1, 3),
+            },
+            {
+              key: `arr-${4}`,
+              items: newArr?.slice(3, 7),
+            },
+            {
+              key: `arr-${8}`,
+              items: newArr?.slice(7, 16),
+            },
+            {
+              key: `arr-${16}`,
+              items: newArr?.slice(16, 32),
+            },
+            {
+              key: `arr-${32}`,
+              items: newArr?.slice(32, 64),
+            },
+          ]
+        : []),
+      ...(newArr?.length > 64 && newArr?.length <= 128
+        ? [
+            { key: `arr-${1}`, items: newArr?.slice(0, 1) },
+            {
+              key: `arr-${2}`,
+              items: newArr?.slice(1, 3),
+            },
+            {
+              key: `arr-${4}`,
+              items: newArr?.slice(3, 7),
+            },
+            {
+              key: `arr-${8}`,
+              items: newArr?.slice(7, 16),
+            },
+            {
+              key: `arr-${16}`,
+              items: newArr?.slice(16, 32),
+            },
+            {
+              key: `arr-${32}`,
+              items: newArr?.slice(32, 64),
+            },
+            {
+              key: `arr-${64}`,
+              items: newArr?.slice(64, 128),
+            },
+          ]
+        : []),
+    ]);
   };
 
   return (
